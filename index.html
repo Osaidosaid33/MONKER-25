@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر مونكر 25 - السترات الرياضية</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: #fff;
+            direction: rtl;
+        }
+
+        header {
+            background-color: #000;
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #d4af37;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 30px 10px;
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #1c1c1c;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 230px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .product img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 15px 0 5px 0;
+            font-size: 1.1rem;
+            color: #d4af37;
+        }
+
+        .product p {
+            margin: 5px 0 15px 0;
+            font-size: 1rem;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .buy-btn {
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #b59432;
+        }
+
+        .cart {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #1c1c1c;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 15px;
+            width: 300px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart h3 {
+            color: #d4af37;
+            margin-top: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .remove-btn {
+            background-color: #e74c3c;
+            border: none;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            background-color: #000;
+            border-top: 3px solid #d4af37;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: 45%;
+            }
+            .cart {
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>متجر مونكر 25</h1>
+    <p>أفضل السترات الرياضية بسعر 70$ فقط</p>
+</header>
+
+<div class="cart" id="cart">
+    <h3>سلة المشتريات</h3>
+    <div id="cart-items"></div>
+    <p><strong>الإجمالي : $<span id="total">0</span></strong></p>
+</div>
+
+<section class="products">
+    <!-- 10 سترات -->
+    <div class="product">
+        <img src="C:\Users\student\Downloads\unnamed.jpg" alt="سترة 1">
+        <h3>سترة رياضية 1</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\unnamed (1).jpg" alt="سترة 2">
+        <h3>سترة رياضية 2</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\unnamed (2).jpg" alt="سترة 3">
+        <h3>سترة رياضية 3</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\unnamed (3).jpg" alt="سترة 4">
+        <h3>سترة رياضية 4</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\unnamed (4).jpg" alt="سترة 5">
+        <h3>سترة رياضية 5</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\unnamed (5).jpg" alt="سترة 6">
+        <h3>سترة رياضية 6</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+                <img src="C:\Users\student\Downloads\unnamed (6).jpg" alt="سترة 7">
+        <h3>سترة رياضية 7</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\Screenshot_27-11-2025_11144_gemini.google.com.jpeg" alt="سترة 8">
+        <h3>سترة رياضية 8</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\Screenshot_27-11-2025_11230_gemini.google.com.jpeg" alt="سترة 9">
+        <h3>سترة رياضية 9</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+    <div class="product">
+        <img src="C:\Users\student\Downloads\Screenshot_27-11-2025_1131_gemini.google.com.jpeg" alt="سترة 10">
+        <h3>سترة رياضية 10</h3>
+        <p>70$</p>
+        <button class="buy-btn" onclick="addToCart('سترة رياضية ', 70)">أضف إلى السلة</button>
+    </div>
+</section>
+
+<footer>
+    جميع الحقوق محفوظة &copy; 2025 متجر مونكر 25
+</footer>
+
+<script>
+    let cart = [];
+    const cartItemsDiv = document.getElementById('cart-items');
+    const totalSpan = document.getElementById('total');
+
+    function addToCart(name, price) {
+        const existing = cart.find(item => item.name === name);
+        if(existing){
+            existing.qty += 1;
+        } else {
+            cart.push({name, price, qty:1});
+        }
+        updateCart();
+    }
+
+    function removeFromCart(name) {
+        cart = cart.filter(item => item.name !== name);
+        updateCart();
+    }
+
+    function updateCart() {
+        cartItemsDiv.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price * item.qty;
+            const div = document.createElement('div');
+            div.classList.add('cart-item');
+            div.innerHTML = `
+                <span>${item.name} x${item.qty}</span>
+                <span>$${item.price * item.qty} 
+                    <button class="remove-btn" onclick="removeFromCart('${item.name}')">✖</button>
+                </span>
+            `;
+            cartItemsDiv.appendChild(div);
+        });
+        totalSpan.textContent = total;
+    }
+</script>
+
+</body>
+</html>
